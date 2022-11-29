@@ -1,0 +1,54 @@
+@import "/src/App.scss";
+
+@media screen and (max-width: 1005px) {
+  //1005pxまで
+  .widget {
+    display: none;
+  }
+}
+
+.widget {
+  flex: 0.35;
+  margin-left: 20px;
+  padding-top: 10px;
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  &_input {
+    display: flex;
+    background-color: $TwitterBackground;
+    padding: 10px;
+    border-radius: 20px;
+    & > input {
+      border: none;
+      outline: none;
+      background-color: $TwitterBackground;
+    }
+  }
+  &_container {
+    margin-top: 20px;
+  }
+  &_tweet {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: $TwitterBackground;
+    & > h2 {
+      font-size: 18px;
+      font-weight: 800;
+      opacity: 0.8;
+      text-align: center;
+    }
+  }
+  &_timeline {
+    margin-bottom: 20px;
+    padding: 8px 10px;
+    border-radius: 10px;
+    background-color: $TwitterBackground;
+  }
+  &_button {
+    padding-left: 10px;
+    padding-bottom: 10px;
+  }
+}

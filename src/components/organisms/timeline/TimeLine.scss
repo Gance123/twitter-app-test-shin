@@ -1,0 +1,129 @@
+@import "/src/App.scss";
+
+//500pxまで
+@media screen and (max-width: 500px) {
+  .timeline {
+    margin-right: 0;
+  }
+}
+
+//500pxから
+@media screen and (min-width: 500px) {
+  .timeline {
+    margin-right: 20px;
+  }
+}
+
+//1005pxまで
+@media screen and (max-width: 1006px) {
+  .timeline {
+    flex: 1;
+  }
+}
+//1005pxから
+@media screen and (min-width: 1006px) {
+  .timeline {
+    flex: 0.45;
+  }
+}
+
+.timeline {
+  border-right: 1px solid $TwitterBackground;
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  &_header {
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 100;
+    border-top: 1px solid $TwitterBackground;
+    border-bottom: 1px solid $TwitterBackground;
+    padding: 5px 20px;
+    & > h2 {
+      font-size: 20px;
+      font-weight: 800;
+    }
+  }
+}
+
+.tweetbox {
+  padding-bottom: 10px;
+  padding-right: 10px;
+  border-bottom: 8px solid $TwitterBackground;
+  &_form {
+    display: flex;
+    flex-direction: column;
+  }
+  &_input {
+    padding: 20px;
+    display: flex;
+    & > input {
+      flex: 1;
+      font-size: 20px;
+      margin-left: 20px;
+      border: none;
+      outline: none;
+    }
+  }
+  &_imageInput {
+    padding: 20px;
+    border: none;
+    outline: none;
+  }
+  &_button {
+    color: white !important;
+    outline: none !important;
+    background-color: $TwitterColor !important;
+    font-weight: 900 !important;
+    width: 130px !important;
+    height: 40px !important;
+    border-radius: 30px !important;
+    margin-top: 20px !important;
+    margin-left: auto !important;
+  }
+}
+
+.post {
+  display: flex;
+  flex-direction: flex-start;
+  border-bottom: 1px solid $TwitterBackground;
+  padding: 15px 0px;
+  &_avatar {
+    padding: 0px 15px;
+  }
+  &_body {
+    flex: 1;
+    margin-right: 20px;
+    & > img {
+      border-radius: 20px;
+      width: 100%;
+    }
+  }
+  &_headerText {
+    & > h3 {
+      font-size: 15px;
+      margin-bottom: 5px;
+    }
+  }
+  &_headerSpecial {
+    font-weight: 700;
+    font-size: 12px;
+    color: gray;
+  }
+  &_badge {
+    font-size: 14px !important;
+    color: $TwitterColor;
+    margin-bottom: 6px;
+  }
+  &_headerDescription {
+    margin-bottom: 10px;
+    font-size: 15px;
+  }
+  &_footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 10px 10px 10px;
+  }
+}

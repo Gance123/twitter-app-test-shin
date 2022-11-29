@@ -1,0 +1,30 @@
+$TwitterColor: #50b7f5;
+$TwitterBackground: #e6ecf0;
+
+.home {
+  display: flex;
+  height: 100vh;
+}
+
+//500pxまで
+@media screen and (max-width: 500px) {
+  .home {
+    flex-direction: column-reverse;
+  }
+}
+
+//700pxまで
+@media screen and (max-width: 700px) {
+  .home {
+    display: flex;
+  }
+}
+
+//700pxから
+@media screen and (min-width: 700px) {
+  .home {
+    max-width: 1300px;
+    margin: 0 auto !important;
+    padding: 0 10px;
+  }
+}

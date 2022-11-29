@@ -1,0 +1,121 @@
+@import "/src/App.scss";
+
+.css-i4bv87-MuiSvgIcon-root {
+  font-size: 30px !important;
+}
+
+.sidebar {
+  border-right: 1px solid $TwitterBackground;
+  &_options {
+    margin: 0px 10px;
+    cursor: pointer;
+    border-radius: 30px;
+    transition: color 0.15s ease-out;
+    & > h2 {
+      font-size: 20px;
+      margin: 10px 0px 10px 0px;
+      padding-left: 10px;
+      font-weight: 800;
+    }
+    &:hover {
+      color: $TwitterColor;
+      background-color: #e8f5fe;
+    }
+  }
+}
+
+//500pxまで
+@media screen and (max-width: 500px) {
+  .sidebar {
+    display: flex;
+    border-top: 1px solid $TwitterBackground;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    position: sticky;
+    bottom: 0;
+    background: white;
+    &_twitterIcon {
+      display: none;
+
+      & > .icons {
+        padding: 0;
+      }
+    }
+    &_button {
+      display: none;
+    }
+  }
+}
+
+//500pxから
+@media screen and (min-width: 500px) {
+  .sidebar {
+    flex: 0.2;
+    &_options {
+      padding: 0px 10px 0px 10px;
+      margin-top: 30px;
+    }
+    &_twitterIcon {
+      display: flex;
+      color: $TwitterColor;
+      font-size: 30px !important;
+      & > .icons {
+        padding: 14px 0 12px 0;
+      }
+    }
+    &_button {
+      background-color: $TwitterColor !important;
+      color: white !important;
+      border: none !important;
+      border-radius: 30px !important;
+      height: 50px !important;
+      margin-top: 20px !important;
+      margin-left: 10px !important;
+      width: 90%;
+    }
+  }
+}
+
+//1280pxまで
+@media screen and (max-width: 1280px) {
+  .sidebar {
+    &_options {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 50px;
+      width: 50px;
+      margin: 30px auto;
+      text-align: center;
+      & > h2 {
+        display: none;
+      }
+    }
+    &_twitterIcon {
+      justify-content: center;
+      padding-top: 20px;
+    }
+  }
+}
+
+//1280pxから
+@media screen and (min-width: 1280px) {
+  .sidebar {
+    min-width: 250px;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    &_options {
+      display: flex;
+      align-items: center;
+      width: 90%;
+      margin-top: 10px;
+    }
+    &_twitterIcon {
+      margin-left: 20px;
+      margin-bottom: 20px;
+    }
+  }
+}
