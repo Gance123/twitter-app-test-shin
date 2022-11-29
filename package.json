@@ -14,6 +14,7 @@
     "@emotion/styled": "^11.10.5",
     "@mui/icons-material": "^5.10.14",
     "@mui/material": "^5.10.14",
+    "@types/react-flip-move": "^2.9.12",
     "firebase": "^9.14.0",
     "framer-motion": "^7.6.7",
     "node-sass": "^8.0.0",

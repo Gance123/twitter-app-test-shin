@@ -1,17 +1,23 @@
-import React, { useState } from "react";
+import React, { Dispatch, SetStateAction, useState } from "react";
 
 import TwitterIcon from "@mui/icons-material/Twitter";
 import { Button } from "@mui/material";
 import { signInWithPopup } from "firebase/auth";
 import { auth, provider } from "../../firebase";
+import { useNavigate } from "react-router-dom";
 
-export const Login = () => {
-  const [isAuth, setIsAuth] = useState<string | undefined>("false");
+type Props = {
+  setIsAuth: Dispatch<SetStateAction<string | undefined>>;
+};
 
+export const Login = (props: Props) => {
+  const { setIsAuth } = props;
+  const navigate = useNavigate();
   const onClickLogin = () => {
     signInWithPopup(auth, provider).then((result) => {
       localStorage.setItem("isAuth", "true");
-      setIsAuth("true")
+      setIsAuth("true");
+      navigate("/home");
     });
   };
   return (

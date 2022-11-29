@@ -1,13 +1,14 @@
 import "./TimeLine.scss";
 import { memo, useEffect, useState } from "react";
-import FlipMove from "react-flip-move";
-import { db } from "../../../firebase";
+import { auth, db } from "../../../firebase";
 import { collection, query, orderBy, onSnapshot } from "firebase/firestore";
 
 import { Post } from "../../molecules/timeline/Post";
 import { TweetBox } from "../../molecules/timeline/TweetBox";
+import { Button } from "@mui/material";
+// import FlipMove from "react-flip-move";
 
-export const TimeLine = (() => {
+export const TimeLine = () => {
   const [postLists, setPostLists] = useState<Array<any>>([]);
 
   useEffect(() => {
@@ -18,12 +19,15 @@ export const TimeLine = (() => {
     // });
     /* リアルタイムでデータ取得*/
     onSnapshot(q, (querySnapshot) => {
-      console.log(
-        querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
-      );
+      // console.log(
+      //   querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+      // );
       setPostLists(
         querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
       );
+      // postLists.map((post) => {
+      //   console.log(post.id);
+      // });
     });
   }, []);
 
@@ -38,20 +42,24 @@ export const TimeLine = (() => {
         <TweetBox />
         {/* ポスト */}
         {/* <FlipMove> */}
-          {postLists.map((postList) => (
+        {postLists.map((post) => (
+          <>
             <Post
-              key={postList.id}
-              dispalayName={postList.dispalayName}
-              username={postList.username}
-              verified={postList.verified}
-              text={postList.text}
-              abatar={postList.abatar}
-              image={postList.image}
-              postID={postList.id}
+              key={post.id}
+              dispalayName={post.dispalayName}
+              username={post.author.username}
+              verified={post.verified}
+              text={post.text}
+              abatar={post.abatar}
+              image={post.image}
+              docID={post.id}
+              authorID={post.author.id}
             />
-          ))}
+            
+          </>
+        ))}
         {/* </FlipMove> */}
       </div>
     </>
   );
-});
+};

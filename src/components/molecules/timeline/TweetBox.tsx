@@ -1,7 +1,7 @@
 import { ChangeEvent, useState } from "react";
 import { Avatar, Button } from "@mui/material";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
-import { db } from "../../../firebase";
+import { auth, db } from "../../../firebase";
 
 export const TweetBox = () => {
   const [tweetText, setTweetText] = useState<string>("");
@@ -10,17 +10,21 @@ export const TweetBox = () => {
   const onClickTweet = (e: any) => {
     e.preventDefault();
     addDoc(collection(db, "posts"), {
-      dispalayName: "",
-      username: "",
+      author: {
+        username: auth.currentUser?.displayName,
+        id: auth.currentUser?.uid,
+      },
+      dispalayName: "匿名さん",
       verified: "",
       text: tweetText,
       abatar: "",
       image: tweetImage,
-      timestamp: serverTimestamp()
+      timestamp: serverTimestamp(),
     });
     setTweetText("");
     setTweetImage("");
   };
+
   return (
     <div className="tweetbox">
       <form className="tweetbox_form">

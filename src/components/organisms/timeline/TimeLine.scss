@@ -91,7 +91,13 @@
   border-bottom: 1px solid $TwitterBackground;
   padding: 15px 0px;
   &_avatar {
-    padding: 0px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px 15px 0px 0px ;
+  }
+  &_deletebutton {
+    padding: 10px !important;
   }
   &_body {
     flex: 1;
@@ -126,4 +132,5 @@
     justify-content: space-between;
     padding: 20px 10px 10px 10px;
   }
+  
 }
